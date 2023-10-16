@@ -1,0 +1,5 @@
+(library
+ (package demo)
+ (name queue)
+ (preprocess
+  (pps gospel.ppx -- -pp "gospel pps")))

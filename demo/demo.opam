@@ -1,0 +1,24 @@
+opam-version: "2.0"
+depends: [
+  "dune" {>= "3.0"}
+  "gospel" {>= "0.2.0"}
+  "ortac-core" {with-test}
+  "ortac-runtime" {with-test}
+  "ortac-qcheck-stm" {with-test}
+  "qcheck-stm" {with-test}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]

@@ -1,0 +1,23 @@
+(rule
+ (target queue_stm_tests.ml)
+ (package demo)
+ (action
+  (run ortac qcheck-stm ../src/queue.mli "create ()" "int t" -o %{target})))
+
+(test
+ (name queue_stm_tests)
+ (package demo)
+ (libraries
+  qcheck-core
+  qcheck-core.runner
+  qcheck-stm.stm
+  qcheck-stm.sequential
+  qcheck-multicoretests-util
+  ortac-runtime
+  queue))
+
+(rule
+ (alias runtest)
+ (package demo)
+ (action
+  (run %{dep:queue_stm_tests.exe} -v)))
