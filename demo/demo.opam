@@ -22,3 +22,14 @@ build: [
     "@doc" {with-doc}
   ]
 ]
+pin-depends: [
+[
+  "ortac-core.dev" "git+https://github.com/ocaml-gospel/ortac#main"
+]
+[
+  "ortac-runtime.dev" "git+https://github.com/ocaml-gospel/ortac#main"
+]
+[
+  "ortac-qcheck-stm.dev" "git+https://github.com/ocaml-gospel/ortac#main"
+]
+]

@@ -20,6 +20,7 @@ val push : 'a -> 'a t -> unit
 
 (** A helper ghost function to read last element of a list *)
 (*@ function rec last (xs : 'a list) : 'a option =
+      match xs with
       | [] -> None
       | x :: [] -> Some x
       | _ :: xs -> last xs *)
@@ -28,5 +29,7 @@ val pop : 'a t -> 'a
 (*@ v = pop q
     modifies q.contents
     ensures q.contents = remove_last (old q.contents)
-    ensures v = last q.contents
+    ensures match last q.contents with
+             | None -> false
+             | Some x -> v = x
     raises Empty -> q.contents = old q.contents = [] *)
