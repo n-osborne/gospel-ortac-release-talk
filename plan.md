@@ -1,3 +1,26 @@
+# Ortac qcheck-stm plugin
+
+## What is QCheck-STM?
+
+- model based testing
+- based on a description of the tested library
+- description is given by the user in an OCaml module
+
+ortac qcheck-stm generates the OCaml module from Gospel specifications
+
+## How does it work?
+
+demo
+
+## Limitations
+
+- need a particular style of specification (often stronger postconditions than
+  necessary otherwise) (*eg* `Hashtbl.add`)
+
+- exception specification in Gospel (not an easy and natural way of telling the
+  tool in which conditions an exception is raised) (see `Queue.pop`)
+
+
 # Gospel release
 
 ## new ppx
@@ -51,19 +74,6 @@ github issues.
 - Fixed a couple of error message (or replace some internal failures with
   proper error message)
 
-# Ortac qcheck-stm plugin
-
-## How does it work
-
-demo
-
-## Limitations
-
-- need a particular style of specification (often stronger postconditions than
-  necessary otherwise) (*eg* `Hashtbl.add`)
-
-- exception specification in Gospel (not an easy and natural way of telling the
-  tool in which conditions an exception is raised)
 
 # Future
 
