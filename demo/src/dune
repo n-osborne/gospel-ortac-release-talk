@@ -1,5 +1,13 @@
 (library
  (package demo)
  (name queue)
+ (modules queue)
+ (preprocess
+  (pps gospel.ppx -- -pp "gospel pps")))
+
+(library
+ (package demo)
+ (name hashtbl)
+ (modules hashtbl)
  (preprocess
   (pps gospel.ppx -- -pp "gospel pps")))
