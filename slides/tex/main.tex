@@ -1,0 +1,150 @@
+\documentclass[pdf]{beamer}
+\mode<presentation>{}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[circle]
+
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+\title{Ortac/QCheck-STM 0.1, Gospel 0.2}
+\author{
+  Samuel Hym
+  \and
+  Nicolas Osborne
+}
+\titlegraphic{
+  \includegraphics[width=20mm]{./img/tarides.png}
+}
+\date{October 20, 2023}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Presentation outline
+\begin{frame}{Outline}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+% Current section
+\AtBeginSection[ ]
+{
+\begin{frame}{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+}
+
+\section{Ortac/QCheck-STM 0.1}
+
+\begin{frame}
+
+  \begin{enumerate}
+    \item QCheck-STM presentation
+    \item \texttt{ortac qcheck-stm} demo
+    \item Latest development in Gospel
+  \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{What is QCheck-STM?}
+
+  \texttt{qcheck-stm} is a model-based testing framework that builds upon
+  \texttt{QCheck}. According to a library description, it generates random
+  programs using the functionalities of this library and runs them, records
+  the results at each step of the run, and compares these results with the
+  behaviour of a given pure (functional) model.
+
+\end{frame}
+
+\begin{frame}
+
+  The library description contains mostly:
+
+  \begin{itemize}
+
+    \item a \texttt{cmd} type encoding the tested functions with their type
+    \item how to instantiate the type we are testing (called \texttt{sut})
+    \item a \texttt{state} type (the model)
+    \item a \texttt{next\_state} function
+    \item predicates for pre and post conditions
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Towards a \texttt{Gospel} to \texttt{qcheck-stm} translation}
+
+  The general context is to aim for a unified push-button experience for
+  testing frameworks in the property based testing familly (\texttt{Crowbar},
+  \texttt{QCheck}, \texttt{qcheck-stm}\dots).
+
+  Specifies once (with \texttt{Gospel}) and have property based testing ---
+  with or without fuzzing --- and model-based testing for free!
+
+\end{frame}
+
+\begin{frame}{The Proof of Concept}
+
+  Naomi Spargo build a Proof of Concept \url{https://github.com/naomiiiiiiiii/stm_ortac}.
+
+  The general basic idea is to build on Gospel's models to implement the
+  \texttt{state} type and postconditions for the \texttt{next\_state} function.
+
+\end{frame}
+
+\begin{frame}{}
+
+  \begin{itemize}
+    \item reoarganisation of \texttt{ortac} with a plugin architecture (less
+      dependencies and fine-grained release)
+      \begin{itemize}
+        \item less dependencies
+        \item fine grained release
+        \item \texttt{ortac-core} package exposes an (use-)independant
+          \texttt{ocaml-of-gospel} translation
+      \end{itemize}
+    \item complete rewrite of Naomi's PoC
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \centering
+  \huge{Demo}
+\end{frame}
+
+\section{Gospel 0.2}
+
+\begin{frame}{What's new in Gospel 0.2?}
+
+  \begin{itemize}
+
+    \item A new \texttt{gospel.ppx} that build documentation attributes based on the contents of the gospel ones
+    \item Updated documentation
+    \item Pattern matching exhaustivness and redundancy analysis (thanks to Paul Patault)
+    \item bugfixes and performance improvements of the pps
+    \item \texttt{dumpast} subcommand
+    \item Partial application allowed is Gospel terms
+    \item Tuple destruction in anonymous functions
+    \item Better location tracking and error messages
+  \end{itemize}
+
+\end{frame}
+
+\section{Future work}
+
+\begin{frame}
+
+  \begin{itemize}
+    \item battle test and improve \texttt{qcheck-stm} plugin
+    \item dune support for Gospel
+    \item continue gospel maintenance
+  \end{itemize}
+
+\end{frame}
+
+\end{document}
