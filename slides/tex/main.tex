@@ -52,7 +52,7 @@
 
 \begin{frame}{What is QCheck-STM?}
 
-  \texttt{qcheck-stm} is a model-based testing framework that builds upon
+  \texttt{QCheck-STM} is a model-based testing framework that builds upon
   \texttt{QCheck}. According to a library description, it generates random
   programs using the functionalities of this library and runs them, records
   the results at each step of the run, and compares these results with the
@@ -66,23 +66,23 @@
 
   \begin{itemize}
 
-    \item a \texttt{cmd} type encoding the tested functions with their type
+    \item a \texttt{cmd} type encoding the tested functions with their types
     \item how to instantiate the type we are testing (called \texttt{sut})
     \item a \texttt{state} type (the model)
     \item a \texttt{next\_state} function
-    \item predicates for pre and post conditions
+    \item predicates for pre- and post-conditions
 
   \end{itemize}
 
 \end{frame}
 
-\begin{frame}{Towards a \texttt{Gospel} to \texttt{qcheck-stm} translation}
+\begin{frame}{Towards a \texttt{Gospel} to \texttt{QCheck-STM} translation}
 
   The general context is to aim for a unified push-button experience for
   testing frameworks in the property based testing familly (\texttt{Crowbar},
-  \texttt{QCheck}, \texttt{qcheck-stm}\dots).
+  \texttt{QCheck}, \texttt{QCheck-STM}\dots).
 
-  Specifies once (with \texttt{Gospel}) and have property based testing ---
+  Specify once (with \texttt{Gospel}) and have property based testing ---
   with or without fuzzing --- and model-based testing for free!
 
 \end{frame}
@@ -99,11 +99,10 @@
 \begin{frame}{}
 
   \begin{itemize}
-    \item reoarganisation of \texttt{ortac} with a plugin architecture (less
-      dependencies and fine-grained release)
+    \item reorganisation of \texttt{ortac} with a plugin architecture
       \begin{itemize}
         \item less dependencies
-        \item fine grained release
+        \item fine-grain release
         \item \texttt{ortac-core} package exposes an (use-)independant
           \texttt{ocaml-of-gospel} translation
       \end{itemize}
@@ -123,12 +122,13 @@
 
   \begin{itemize}
 
-    \item A new \texttt{gospel.ppx} that build documentation attributes based on the contents of the gospel ones
+    \item A new \texttt{gospel.ppx} that builds documentation attributes based on the contents of the gospel ones, for instance:
+    \url{https://ocaml-gospel.github.io/gospel/gospel/Gospelstdlib/index.html}
     \item Updated documentation
-    \item Pattern matching exhaustivness and redundancy analysis (thanks to Paul Patault)
-    \item bugfixes and performance improvements of the pps
-    \item \texttt{dumpast} subcommand
-    \item Partial application allowed is Gospel terms
+    \item Pattern matching exhaustiveness and redundancy analysis (thanks to Paul Patault)
+    \item Bugfixes and performance improvements of the pps
+    \item A new \texttt{dumpast} subcommand
+    \item Partial application allowed in Gospel terms
     \item Tuple destruction in anonymous functions
     \item Better location tracking and error messages
   \end{itemize}
@@ -137,12 +137,11 @@
 
 \section{Future work}
 
-\begin{frame}
+\begin{frame}{Future work}
 
   \begin{itemize}
-    \item battle test and improve \texttt{qcheck-stm} plugin
+    \item battle test and improve the \texttt{qcheck-stm} plugin
     \item dune support for Gospel
-    \item continue gospel maintenance
   \end{itemize}
 
 \end{frame}
