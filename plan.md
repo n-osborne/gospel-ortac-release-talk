@@ -12,14 +12,24 @@ ortac qcheck-stm generates the OCaml module from Gospel specifications
 
 demo
 
+- wrong spec (old in match queue pop ensures)
+- stupid bug in implementation
+- show generated code
+
 ## Limitations
 
 - need a particular style of specification (often stronger postconditions than
-  necessary otherwise) (*eg* `Hashtbl.add`)
+  necessary otherwise) (*eg* `Hashtbl.add`) -> idea of a rewriting system?
 
 - exception specification in Gospel (not an easy and natural way of telling the
-  tool in which conditions an exception is raised) (see `Queue.pop`)
+  tool in which conditions an exception is raised) (see `Queue.pop`) -> discussion on syntax
+  exceptional precondition: `P -> raises E /\ raises E -> Q`
 
+other syntax problems:
+- `exists` as keyword (and others)
+- `[ x ]` pattern
+- `->` in implication, match and function (why not `=>`/`@=>`/`@->`/`^->`)
+- revise keywords (requires -> preconditions -- ensures -> postconditions...)
 
 # Gospel release
 

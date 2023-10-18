@@ -29,7 +29,7 @@ val pop : 'a t -> 'a
 (*@ v = pop q
     modifies q.contents
     ensures q.contents = remove_last (old q.contents)
-    ensures match last q.contents with
+    ensures match last (old q.contents) with
              | None -> false
              | Some x -> v = x
-    raises Empty -> q.contents = old q.contents = [] *)
+    raises Empty -> q.contents = [] *)

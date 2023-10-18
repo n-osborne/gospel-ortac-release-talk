@@ -1,7 +1,7 @@
 (library
  (package demo)
- (name queue)
- (modules queue)
+ (name my_queue)
+ (modules my_queue)
  (preprocess
   (pps gospel.ppx -- -pp "gospel pps")))
 
