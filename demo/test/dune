@@ -27,35 +27,35 @@
  (action
   (run %{dep:queue_stm_tests.exe} -v)))
 
-; (rule
-;  (target hashtbl_stm_tests.ml)
-;  (alias runtest)
-;  ; (package demo)
-;  (action
-;   (run
-;    ortac
-;    qcheck-stm
-;    %{project_root}/src/hashtbl.mli
-;    "create ~random:false 16"
-;    "(char, int) t"
-;    -o
-;    %{target})))
+(rule
+ (target hashtbl_stm_tests.ml)
+ (alias runtest)
+ ; (package demo)
+ (action
+  (run
+   ortac
+   qcheck-stm
+   %{project_root}/src/hashtbl.mli
+   "create ~random:false 16"
+   "(char, int) t"
+   -o
+   %{target})))
 
-; (test
-;  (name hashtbl_stm_tests)
-;  ; (package demo)
-;  (modules hashtbl_stm_tests)
-;  (libraries
-;   qcheck-core
-;   qcheck-core.runner
-;   qcheck-stm.stm
-;   qcheck-stm.sequential
-;   qcheck-multicoretests-util
-;   ortac-runtime
-;   hashtbl))
+(test
+ (name hashtbl_stm_tests)
+ ; (package demo)
+ (modules hashtbl_stm_tests)
+ (libraries
+  qcheck-core
+  qcheck-core.runner
+  qcheck-stm.stm
+  qcheck-stm.sequential
+  qcheck-multicoretests-util
+  ortac-runtime
+  hashtbl))
 
-; (rule
-;  (alias runtest)
-;  ; (package demo)
-;  (action
-;   (run %{dep:hashtbl_stm_tests.exe} -v)))
+(rule
+ (alias runtest)
+ ; (package demo)
+ (action
+  (run %{dep:hashtbl_stm_tests.exe} -v)))
