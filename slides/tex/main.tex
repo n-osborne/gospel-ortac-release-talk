@@ -40,16 +40,6 @@
 
 \section{Ortac/QCheck-STM 0.1}
 
-\begin{frame}
-
-  \begin{enumerate}
-    \item QCheck-STM presentation
-    \item \texttt{ortac qcheck-stm} demo
-    \item Latest development in Gospel
-  \end{enumerate}
-
-\end{frame}
-
 \begin{frame}{What is QCheck-STM?}
 
   \texttt{QCheck-STM} is a model-based testing framework that builds upon
@@ -96,7 +86,7 @@
 
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}{The new \texttt{ortac}}
 
   \begin{itemize}
     \item reorganisation of \texttt{ortac} with a plugin architecture
@@ -118,19 +108,26 @@
 
 \section{Gospel 0.2}
 
+\begin{frame}{A new \texttt{gospel.ppx}}
+
+  \begin{itemize}
+    \item Build documentation attributes based on the contents of the gospel ones
+    \item For instance: \url{https://ocaml-gospel.github.io/gospel/gospel/Gospelstdlib/index.html}
+    \item One can also generate and install locally manpages for Gospelstdlib.
+  \end{itemize}
+
+\end{frame}
+
 \begin{frame}{What's new in Gospel 0.2?}
 
   \begin{itemize}
-
-    \item A new \texttt{gospel.ppx} that builds documentation attributes based on the contents of the gospel ones, for instance:
-    \url{https://ocaml-gospel.github.io/gospel/gospel/Gospelstdlib/index.html}
-    \item Updated documentation
     \item Pattern matching exhaustiveness and redundancy analysis (thanks to Paul Patault)
     \item Bugfixes and performance improvements of the pps
     \item A new \texttt{dumpast} subcommand
     \item Partial application allowed in Gospel terms
     \item Tuple destruction in anonymous functions
     \item Better location tracking and error messages
+    \item Updated documentation (with typechecking of Gospel extracts)
   \end{itemize}
 
 \end{frame}
